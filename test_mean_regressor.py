@@ -37,6 +37,7 @@ def test_constructor():
     model = MeanRegressor()
     assert isinstance(model, MeanRegressor)
 
+
 def test_fit():
     """ Test that the `fit` method does not return anything.  Because the
     internal behavior of the model is not specified, this test cannot actually
@@ -44,6 +45,7 @@ def test_fit():
     from mean_regressor import MeanRegressor
     model = MeanRegressor()
     assert model.fit(X_train, y_train) == None
+
 
 def test_predict():
     """ Test that the `predict` method returns the mean from the training data """
@@ -54,6 +56,7 @@ def test_predict():
     expected_predictions = np.repeat(0.437354358, len(X_test))
     assert np.allclose(predictions, expected_predictions)
 
+
 def test_score_same_y():
     """ Test that the `score` method returns 0 if you use the training data,
     since there is no difference between our model and guessing the mean """
@@ -62,6 +65,7 @@ def test_score_same_y():
     model.fit(X_train, y_train)
     r_squared = model.score(X_train, y_train)
     assert np.isclose(r_squared, 0.0)
+
 
 def test_score_different_y():
     """ Test that the `score` method computes the correct score on the test data"""
